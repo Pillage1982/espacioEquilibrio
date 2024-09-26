@@ -1,0 +1,220 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Estilos del banner */
+.banner-container {
+    position: relative;
+    width: 100%;
+    height: 320px;
+}
+
+.banner-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.banner-container h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ad7bc5; /* Asegúrate de que el texto sea legible */
+    font-size: 6em; /* Ajusta el tamaño de la fuente según sea necesario */
+    text-shadow: 2px 2px 4px rgba(0.5, 0.5, 0.5, 0.5); /* Añade sombra al texto para mejor legibilidad */
+}
+
+/* Estilos del navbar */
+.navbar {
+    background-color: #aec6ef; /* Color de fondo de la barra de navegación */
+    padding: 15px 0; /* Espacio interno de la barra de navegación */
+    position: fixed; /* Fija la barra de navegación en la parte superior */
+    top: 0; /* Posición en la parte superior */
+    width: 100%; /* Ancho completo */
+    z-index: 1000; /* Asegura que la barra de navegación esté por encima del contenido */
+    display: flex; /* Hace que los elementos hijos se alineen en una fila */
+    align-items: center; /* Centra verticalmente los elementos */
+}
+
+.navbar ul {
+    list-style-type: none; /* Elimina los puntos de la lista */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Hace que los elementos de la lista se alineen horizontalmente */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: center; /* Centra los elementos horizontalmente */
+}
+
+.navbar li {
+    margin: 0 15px; /* Espacio entre los elementos de la lista */
+}
+
+.navbar a {
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: #000; /* Color del texto de los enlaces */
+    font-size: 1.2em; /* Tamaño de la fuente de los enlaces */
+}
+
+.navbar a:hover {
+    color: #ad7bc5; /* Color del texto de los enlaces al pasar el ratón por encima */
+}
+
+.navbar .logo {
+    width: 50px; /* Ajusta el tamaño del logo según sea necesario */
+    height: 50px; /* Ajusta el tamaño del logo según sea necesario */
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    object-fit: cover;
+}
+
+/* Estilos de las secciones */
+section {
+    padding: 50px 0; /* Espacio interno de las secciones */
+    text-align: center; /* Alinea el contenido al centro */
+    background-color: #f2e2ee; /* Color de fondo */
+    border: 2px solid #8190d2; /* Borde de color */
+    border-radius: 15px; /* Bordes redondeados */
+    margin: 10px 0; /* Separación de 10px entre las secciones */
+}
+
+/* Estilos del formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f2e2ee; /* Color de fondo del formulario */
+    padding: 20px;
+    border: 2px solid #8190d2; /* Borde del formulario */
+    border-radius: 15px; /* Bordes redondeados */
+    margin: 20px 0; /* Margen alrededor del formulario */
+}
+
+form label {
+    margin: 10px 0 5px 0;
+    font-size: 1.2em;
+}
+
+form input, form textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 80%;
+    max-width: 400px;
+    border: 1px solid #8190d2;
+    border-radius: 5px;
+}
+
+form textarea {
+    height: 100px; /* Altura del textarea */
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #8190d2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+form button:hover {
+    background-color: #6b7bbd;
+}
+
+/* Estilos del pie de página */
+footer {
+    background-color: #cda7da; /* Color de fondo del pie de página */
+    padding: 15px 0; /* Espacio interno del pie de página */
+    text-align: center; /* Alinea el contenido al centro */
+}
+
+footer .logo {
+    width: 50px; /* Ajusta el tamaño del logo según sea necesario */
+    height: 50px; /* Ajusta el tamaño del logo según sea necesario */
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    object-fit: cover;
+}
+
+/* Estilos del botón de menú */
+.menu-toggle {
+    display: none; /* Oculto por defecto */
+    background-color: transparent; /* Fondo transparente */
+    border: none;
+    padding: 10px; /* Ajusta el padding para un tamaño adecuado */
+    font-size: 2em; /* Tamaño del icono de hamburguesa */
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1001; /* Asegura que el botón esté por encima del navbar */
+    color: #cda7da
+}
+
+/* Media Queries para Responsividad */
+
+/* Para pantallas de hasta 768px de ancho */
+@media (max-width: 768px) {
+    .banner-container h1 {
+        font-size: 4em; /* Reduce el tamaño de la fuente del título */
+    }
+
+    .navbar ul {
+        flex-direction: column; /* Cambia la dirección de los elementos a columna */
+    }
+
+    .navbar li {
+        margin: 10px 0; /* Añade margen entre los elementos de la lista */
+    }
+
+    .navbar .logo {
+        width: 40px; /* Ajusta el tamaño del logo */
+        height: 40px; /* Ajusta el tamaño del logo */
+    }
+
+    section {
+        padding: 30px 10px; /* Ajusta el padding de las secciones */
+    }
+
+    form input, form textarea {
+        width: 90%; /* Ajusta el ancho de los inputs y textarea */
+    }
+
+    .menu-toggle {
+        display: block; /* Mostrar el botón en pantallas pequeñas */
+    }
+
+    .navbar {
+        display: none; /* Ocultar el navbar por defecto en pantallas pequeñas */
+        flex-direction: column; /* Alinear los elementos en columna */
+    }
+
+    .navbar.show {
+        display: flex; /* Mostrar el navbar cuando se active */
+    }
+}
+
+/* Para pantallas de hasta 480px de ancho */
+@media (max-width: 480px) {
+    .banner-container h1 {
+        font-size: 3em; /* Reduce aún más el tamaño de la fuente del título */
+    }
+
+    .navbar .logo {
+        width: 30px; /* Ajusta el tamaño del logo */
+        height: 30px; /* Ajusta el tamaño del logo */
+    }
+
+    form input, form textarea {
+        width: 100%; /* Ajusta el ancho de los inputs y textarea */
+    }
+}
