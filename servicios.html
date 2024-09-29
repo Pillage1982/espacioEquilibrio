@@ -25,8 +25,12 @@
                 <li><a href="index.html"><img src="images/espacioLogo.jpeg" alt="logo" class="logo"></a></li>
                 <li><a href="index.html">Inicio</a></li>            
                 <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="login.html">Registro</a></li>
+                <li><a href="#" id="open-contact-modal">Contacto</a></li>
+                <li><a href="#" id="open-register-modal">Registro</a></li>
+                <li class="search-container">
+                    <input type="text" name="query" placeholder="Buscar..." class="search-input">
+                    <button type="submit" class="search-button">Buscar</button>
+                </li>
             </ul>
         </nav>
         <main>
@@ -50,6 +54,45 @@
             <a href="index.html"><img src="images/espacioLogo.jpeg" alt="logo" class="logo"></a>
             <p>&copy; 2024 Espacio Equilibrio. Todos los derechos reservados.</p>
         </footer>
+
+        <!-- Modal de Registro -->
+        <div id="register-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Registro</h2>
+                <form action="/submit_register" method="post">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required><br>        
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br>
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" required><br>        
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required><br>        
+                    <button type="submit">Registrarse</button><br>
+                    <button type="button" id="cancel-register-button">Cancelar</button><br>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal de Contacto -->
+        <div id="contact-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" id="close-contact-modal">&times;</span>
+                <h2>Contacto</h2>
+                <form action="/submit_contact" method="post">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required><br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br>
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" required></textarea><br>
+                    <button type="submit">Enviar</button><br>
+                    <button type="button" id="cancel-contact-button">Cancelar</button><br>                
+                </form>
+            </div>
+        </div>
+
         <script src="scripts/scrit.js"></script>
     </body>
     
