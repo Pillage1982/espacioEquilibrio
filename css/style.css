@@ -6,8 +6,7 @@
 }
 
 body {
-    font-family: "Dancing Script", cursive;
-    font-optical-sizing: auto;
+    font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
@@ -17,82 +16,83 @@ body {
     position: relative;
     width: 100%;
     height: 320px;
+    background-color: #aec6ef;
 }
 
 .banner-container img {
     width: 100%;
     height: 100%;
+    margin-top: 60px;
+    padding-bottom: 60px;
 }
 
 .banner-container h1 {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #ad7bc5; /* Asegúrate de que el texto sea legible */
-    font-size: 6em; /* Ajusta el tamaño de la fuente según sea necesario */
-    text-shadow: 2px 2px 4px rgba(0.5, 0.5, 0.5, 0.5); /* Añade sombra al texto para mejor legibilidad */
+    left: 60px;
+    transform: translateY(-50%);
+    color: #ad7bc5;
+    font-size: 4em;
+    text-shadow: 2px 2px 4px rgba(0.5, 0.5, 0.5, 0.5);
+}
+
+.banner-container h3 {
+    position: absolute;
+    top: calc(52% + 2em);
+    left: 60px;
+    transform: translateY(-50%);
+    color: #fefefe;
+    font-size: 1.2em;
+    text-shadow: 2px 2px 4px rgba(0.5, 0.5, 0.5, 0.5);
 }
 
 /* Estilos del navbar */
 .navbar {
-    background-color: #aec6ef; /* Color de fondo de la barra de navegación */
-    padding: 15px 0; /* Espacio interno de la barra de navegación */
-    position: fixed; /* Fija la barra de navegación en la parte superior */
-    top: 0; /* Posición en la parte superior */
-    width: 100%; /* Ancho completo */
-    z-index: 1000; /* Asegura que la barra de navegación esté por encima del contenido */
-    display: flex; /* Hace que los elementos hijos se alineen en una fila */
-    align-items: center; /* Centra verticalmente los elementos */
-}
-
-.navbar ul {
-    list-style-type: none; /* Elimina los puntos de la lista */
-    padding: 0;
-    margin: 0;
-    display: flex; /* Hace que los elementos de la lista se alineen horizontalmente */
-    align-items: center; /* Centra verticalmente los elementos */
-    justify-content: center; /* Centra los elementos horizontalmente */
-}
-
-.navbar li {
-    margin: 0 15px; /* Espacio entre los elementos de la lista */
-}
-
-.navbar a {
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
-    color: #000; /* Color del texto de los enlaces */
-    font-size: 1.2em; /* Tamaño de la fuente de los enlaces */
-}
-
-.navbar a:hover {
-    color: #ad7bc5; /* Color del texto de los enlaces al pasar el ratón por encima */
-}
-
-.navbar .logo {
-    width: 50px; /* Ajusta el tamaño del logo según sea necesario */
-    height: 50px; /* Ajusta el tamaño del logo según sea necesario */
-    border-radius: 50%; /* Hace que la imagen sea circular */
-    object-fit: cover;
-}
-
-/* Estilos para el navbar */
-.navbar ul {
+    background-color: #aec6ef;
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
+}
+
+.navbar ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.navbar ul li {
-    margin-right: 20px; /* Espacio entre los elementos del navbar */
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.2em;
+}
+
+.navbar a:hover {
+    color: #ad7bc5;
+}
+
+.navbar .logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .navbar ul li.search-container {
-    margin-left: auto; /* Mueve el contenedor de búsqueda a la derecha */
+    margin-left: auto;
     display: flex;
-    align-items: right;
+    align-items: center;
 }
 
 .search-input {
@@ -101,9 +101,9 @@ body {
     border: 1px solid #8190d2;
     border-radius: 5px 0 0 5px;
     outline: none;
-    height: 30px; /* Ajusta la altura para que coincida con los elementos del navbar */
-    margin: 0; /* Elimina el margen para que no deforme el navbar */
-    border-right: none; /* Elimina el borde derecho para unir con el botón */
+    height: 30px;
+    margin: 0;
+    border-right: none;
 }
 
 .search-button {
@@ -115,22 +115,87 @@ body {
     background-color: #8190d2;
     color: white;
     cursor: pointer;
-    height: 30px; /* Ajusta la altura para que coincida con los elementos del navbar */
-    margin: 0; /* Elimina el margen para que no deforme el navbar */
+    height: 30px;
+    margin: 0;
 }
 
 .search-button:hover {
     background-color: #6b7bbd;
 }
 
-/* Estilos de las secciones */
+/* Estilos para centrar el carrusel */
+#publicidadCarousel {
+    display: flex;
+    height: 320px;
+    width: 100%; /* Asegúrate de que ocupe todo el ancho */
+    margin: 10px 0; /* Añade un poco de espacio alrededor */
+}
+
+#publicidadCarousel .carousel-inner {
+    display: flex;
+    overflow: hidden;
+}
+
+#publicidadCarousel .carousel-item {
+    transition: transform 0.5s ease;
+}
+
+#publicidadCarousel img {
+    object-fit: cover;
+    width: 100%;
+    height: 320px; /* Altura consistente */
+}
+
+/* Para asegurar que el carrusel esté bien centrado */
+.carousel {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.carousel-item img {
+    margin: 0 auto; /* Asegura que las imágenes estén centradas */
+}
+
+
+/* Estilos generales para el contenedor principal */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Estilos para el contenedor de las secciones */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilos para las secciones */
 section {
-    padding: 50px 0; /* Espacio interno de las secciones */
-    text-align: center; /* Alinea el contenido al centro */
-    background-color: #f2e2ee; /* Color de fondo */
-    border: 2px solid #8190d2; /* Borde de color */
-    border-radius: 15px; /* Bordes redondeados */
-    margin: 10px 0; /* Separación de 10px entre las secciones */
+    background-color: #f2e2ee;
+    border: 2px solid #8190d2;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+section h2 {
+    font-size: 2em;
+    color: #ad7bc5;
+    margin-bottom: 10px;
+}
+
+section p {
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 10px;
 }
 
 /* Estilos del formulario */
@@ -138,11 +203,11 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f2e2ee; /* Color de fondo del formulario */
+    background-color: #f2e2ee;
     padding: 20px;
-    border: 2px solid #8190d2; /* Borde del formulario */
-    border-radius: 15px; /* Bordes redondeados */
-    margin: 20px 0; /* Margen alrededor del formulario */
+    border: 2px solid #8190d2;
+    border-radius: 15px;
+    margin: 20px 0;
 }
 
 form label {
@@ -160,8 +225,8 @@ form input, form textarea {
 }
 
 form textarea {
-    height: 100px; /* Altura del textarea */
-    resize: vertical; /* Permite redimensionar verticalmente */
+    height: 100px;
+    resize: vertical;
 }
 
 form button {
@@ -180,25 +245,25 @@ form button:hover {
 
 /* Estilos del modal */
 .modal {
-    display: none; /* Oculto por defecto */
-    position: fixed; /* Fijo en la pantalla */
-    z-index: 1000; /* Asegura que el modal esté por encima del contenido */
+    display: none;
+    position: fixed;
+    z-index: 1000;
     left: 0;
     top: 0;
-    width: 100%; /* Ancho completo */
-    height: 100%; /* Altura completa */
-    overflow: auto; /* Habilita el scroll si es necesario */
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* Centra el modal */
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Ancho del modal */
-    max-width: 500px; /* Ancho máximo del modal */
-    border-radius: 10px; /* Bordes redondeados */
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
 }
 
 .close-button {
@@ -215,99 +280,100 @@ form button:hover {
     cursor: pointer;
 }
 
-/* Estilos para los botones del formulario */
 .modal-content form button {
-    margin-right: 10px; /* Espacio a la derecha del botón */
+    margin-right: 10px;
 }
 
 .modal-content form button:last-child {
-    margin-right: 0; /* Elimina el margen del último botón */
+    margin-right: 0;
 }
 
 /* Estilos del pie de página */
 footer {
-    background-color: #cda7da; /* Color de fondo del pie de página */
-    padding: 15px 0; /* Espacio interno del pie de página */
-    text-align: center; /* Alinea el contenido al centro */
+    background-color: #cda7da;
+    padding: 15px 0;
+    text-align: center;
 }
 
 footer .logo {
-    width: 50px; /* Ajusta el tamaño del logo según sea necesario */
-    height: 50px; /* Ajusta el tamaño del logo según sea necesario */
-    border-radius: 50%; /* Hace que la imagen sea circular */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     object-fit: cover;
 }
 
 /* Estilos del botón de menú */
 .menu-toggle {
-    display: none; /* Oculto por defecto */
-    background-color: transparent; /* Fondo transparente */
+    display: none;
+    background-color: transparent;
     border: none;
-    padding: 10px; /* Ajusta el padding para un tamaño adecuado */
-    font-size: 2em; /* Tamaño del icono de hamburguesa */
+    padding: 10px;
+    font-size: 2em;
     cursor: pointer;
     position: fixed;
     top: 10px;
     right: 10px;
-    z-index: 1001; /* Asegura que el botón esté por encima del navbar */
-    color: #cda7da
+    z-index: 1001;
+    color: #cda7da;
 }
 
 /* Media Queries para Responsividad */
-
-/* Para pantallas de hasta 768px de ancho */
 @media (max-width: 768px) {
+    .banner-container {
+        margin-top: 0;
+        padding-bottom: 0;
+    }
+
     .banner-container h1 {
-        font-size: 4em; /* Reduce el tamaño de la fuente del título */
+        font-size: 3em;
     }
 
     .navbar ul {
-        flex-direction: column; /* Cambia la dirección de los elementos a columna */
+        flex-direction: column;
     }
 
     .navbar li {
-        margin: 10px 0; /* Añade margen entre los elementos de la lista */
+        margin: 10px 0;
     }
 
     .navbar .logo {
-        width: 40px; /* Ajusta el tamaño del logo */
-        height: 40px; /* Ajusta el tamaño del logo */
+        width: 40px;
+        height: 40px;
     }
 
     section {
-        padding: 30px 10px; /* Ajusta el padding de las secciones */
+        padding: 30px 10px;
     }
 
     form input, form textarea {
-        width: 90%; /* Ajusta el ancho de los inputs y textarea */
+        width: 90%;
     }
 
     .menu-toggle {
-        display: block; /* Mostrar el botón en pantallas pequeñas */
+        display: block;
     }
 
     .navbar {
-        display: none; /* Ocultar el navbar por defecto en pantallas pequeñas */
-        flex-direction: column; /* Alinear los elementos en columna */
+        display: none;
+        flex-direction: column;
     }
 
     .navbar.show {
-        display: flex; /* Mostrar el navbar cuando se active */
+        display: flex;
     }
 }
 
-/* Para pantallas de hasta 480px de ancho */
 @media (max-width: 480px) {
     .banner-container h1 {
-        font-size: 3em; /* Reduce aún más el tamaño de la fuente del título */
+        font-size: 3em;
     }
 
     .navbar .logo {
-        width: 30px; /* Ajusta el tamaño del logo */
-        height: 30px; /* Ajusta el tamaño del logo */
+        width: 30px;
+        height: 30px;
     }
 
     form input, form textarea {
-        width: 100%; /* Ajusta el ancho de los inputs y textarea */
+        width: 100%;
     }
 }

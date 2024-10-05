@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Toggle del menú
     const menuToggle = document.querySelector('.menu-toggle');
     const navbar = document.querySelector('.navbar');
     const menuLinks = document.querySelectorAll('.navbar a');
@@ -12,54 +13,63 @@ document.addEventListener('DOMContentLoaded', function() {
             navbar.classList.remove('show');
         });
     });
-});
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Modal de Contacto
-    const openContactModal = document.getElementById('open-contact-modal');
-    const contactModal = document.getElementById('contact-modal');
-    const closeContactModal = document.getElementById('close-contact-modal');
+    // Función para manejar la apertura y cierre de modales
+    function setupModal(openButtonId, modalId, closeButtonId, cancelButtonId) {
+        const openButton = document.getElementById(openButtonId);
+        const modal = document.getElementById(modalId);
+        const closeButton = document.getElementById(closeButtonId);
+        const cancelButton = document.getElementById(cancelButtonId);
+
+        openButton.addEventListener('click', function() {
+            modal.style.display = 'block';
+        });
+
+        closeButton.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        cancelButton.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
+
+    // Configuración de los modales
+    setupModal('open-contact-modal', 'contact-modal', 'close-contact-modal', 'cancel-contact-button');
+    setupModal('open-register-modal', 'register-modal', 'close-register-modal', 'cancel-register-button');
+
+
+    // Validación del formulario de contacto
+    const contactForm = document.getElementById('contact-form');
     const cancelContactButton = document.getElementById('cancel-contact-button');
 
-    openContactModal.addEventListener('click', function() {
-        contactModal.style.display = 'block';
-    });
+    async function handleSubmit(event) {
+        event.preventDefault();
 
-    closeContactModal.addEventListener('click', function() {
-        contactModal.style.display = 'none';
-    });
+        const fd = new FormData(contactForm);
 
-    cancelContactButton.addEventListener('click', function() {
-        contactModal.style.display = 'none';
-    });
+        const response = await fetch('https://formspree.io/f/xanywonl', {
+            method: 'POST',
+            body: fd,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
 
-    window.addEventListener('click', function(event) {
-        if (event.target == contactModal) {
-            contactModal.style.display = 'none';
+        if (response.ok) {
+            alert('Mensaje enviado con éxito');
+            contactForm.reset();
+        } else {
+            alert('No se pudo enviar el mensaje');
         }
-    });
+    }
 
-    // Modal de Registro
-    const openRegisterModal = document.getElementById('open-register-modal');
-    const registerModal = document.getElementById('register-modal');
-    const closeRegisterModal = document.getElementById('close-register-modal');
-    const cancelRegisterButton = document.getElementById('cancel-register-button');
+    contactForm.addEventListener('submit', handleSubmit);
 
-    openRegisterModal.addEventListener('click', function() {
-        registerModal.style.display = 'block';
-    });
-
-    closeRegisterModal.addEventListener('click', function() {
-        registerModal.style.display = 'none';
-    });
-
-    cancelRegisterButton.addEventListener('click', function() {
-        registerModal.style.display = 'none';
-    });
-
-    window.addEventListener('click', function(event) {
-        if (event.target == registerModal) {
-            registerModal.style.display = 'none';
-        }
-    });
 });
