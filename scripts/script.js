@@ -1,13 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navbar = document.querySelector('.navbar');
+    const navbarLinks = document.querySelectorAll('.navbar a');
 
     menuToggle.addEventListener('click', function() {
-        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-        menuToggle.setAttribute('aria-expanded', !isExpanded);
-        navbar.classList.toggle('active');
+        navbar.classList.toggle('show');
     });
 
+    navbarLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            navbar.classList.remove('show');
+        });
+    });
+    
     // Validación del formulario de contacto
     const contactForm = document.getElementById('contact-form');
 

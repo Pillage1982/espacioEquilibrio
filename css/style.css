@@ -11,6 +11,15 @@ body {
     font-style: normal; /* Estilo normal de la fuente */
 }
 
+.header-container {
+    display: flex; /* Flexbox para alinear elementos en una fila */
+    justify-content: space-between; /* Espacio entre el navbar y el search-container */
+    align-items: center; /* Alineación vertical */
+    padding: 15px; /* Espaciado alrededor del contenedor */
+    background-color: #f8f8f8; /* Color de fondo */
+    width: 100%; /* Ancho completo */
+}
+
 /* Estilos del botón de menú */
 .menu-toggle {
     display: none;
@@ -27,15 +36,6 @@ body {
     color: #000;
 }
 
-.header-container {
-    display: flex; /* Flexbox para alinear elementos en una fila */
-    justify-content: space-between; /* Espacio entre el navbar y el search-container */
-    align-items: center; /* Alineación vertical */
-    padding: 15px; /* Espaciado alrededor del contenedor */
-    background-color: #f8f8f8; /* Color de fondo */
-    width: 100%; /* Ancho completo */
-}
-
 /* Estilos del navbar */
 #main-navbar {
     flex-grow: 1; /* El navbar ocupa la mayor parte del espacio */
@@ -45,7 +45,6 @@ body {
     top: 0; /* Parte superior */
     z-index: 1000; /* Asegura que el navbar esté por encima de otros elementos */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
-    display: flex; /* Flexbox para alinear elementos */
     align-items: center; /* Alineación vertical */
     width: 100%; /* Ancho completo */
 }
@@ -226,6 +225,7 @@ body {
     flex-direction: column; /* Columna */
     align-items: center; /* Alineación centrada */
     padding: 20px; /* Espaciado interno */
+    margin-top: 100px; /* Espacio superior */
 }
 
 /* Estilos para el contenedor de las secciones */
@@ -368,8 +368,19 @@ footer ul li a {
     }
 
     .banner-container h1 {
-        font-size: 3em;
+        top: 55%; /* Ajusta la posición vertical */
+        left: 20px; /* Ajusta el espacio a la izquierda */
+        font-size: 2.5em; /* Ajusta el tamaño de la fuente */
+        transform: translateY(-50%); /* Ajusta la posición */
     }
+
+    .banner-container h3 {
+        top: 75%; /* Ajusta la posición vertical */
+        left: 20px; /* Ajusta el espacio a la izquierda */
+        font-size: 1em; /* Ajusta el tamaño de la fuente */
+        transform: translateY(-50%); /* Ajusta la posición */
+    }
+
 
     .navbar ul {
         flex-direction: column;
@@ -393,16 +404,27 @@ footer ul li a {
     }
 
     .menu-toggle {
-        display: block;
+        display: block; /* Asegúrate de que el botón se muestre en pantallas pequeñas */
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 1001;
     }
 
     .navbar {
-        display: none;
-        flex-direction: column;
+        display: none; /* Oculta el menú en dispositivos móviles inicialmente */
+        background-color: #f8f8f8; /* Color de fondo del menú */
+        padding: 10px; /* Espaciado dentro del menú */
+        position: fixed; /* Fijo en la parte superior */
+        top: 50px; /* Debajo del botón de menú */
+        right: 0;
+        width: 100%;
+        z-index: 1000;
     }
 
     .navbar.show {
         display: flex;
+        flex-direction: column; /* Coloca los enlaces en una columna */
     }
 
     .search-container {
@@ -424,7 +446,17 @@ footer ul li a {
 
 @media (max-width: 480px) {
     .banner-container h1 {
-        font-size: 3em;
+        top: 55%; /* Ajusta la posición vertical */
+        left: 20px; /* Ajusta el espacio a la izquierda */
+        font-size: 2.5em; /* Ajusta el tamaño de la fuente */
+        transform: translateY(-50%); /* Ajusta la posición */
+    }
+
+    .banner-container h3 {
+        top: 75%; /* Ajusta la posición vertical */
+        left: 20px; /* Ajusta el espacio a la izquierda */
+        font-size: 1em; /* Ajusta el tamaño de la fuente */
+        transform: translateY(-50%); /* Ajusta la posición */
     }
 
     .navbar .logo {
