@@ -11,6 +11,11 @@ body {
     font-style: normal; /* Estilo normal de la fuente */
 }
 
+body, header, main {
+    margin: 0;
+    padding: 0;
+}
+
 .header-container {
     display: flex; /* Flexbox para alinear elementos en una fila */
     justify-content: space-between; /* Espacio entre el navbar y el search-container */
@@ -46,6 +51,7 @@ body {
     z-index: 1000; /* Asegura que el navbar esté por encima de otros elementos */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
     align-items: center; /* Alineación vertical */
+    justify-content: flex-start; /* Alineación horizontal */
     width: 100%; /* Ancho completo */
 }
 
@@ -73,7 +79,7 @@ body {
 .navbar a {
     text-decoration: none; /* Sin subrayado */
     color: #000; /* Color del texto */
-    font-size: 1.2em; /* Tamaño de la fuente */
+    font-size: 0.8em; /* Tamaño de la fuente */
     padding: 10px 15px; /* Espaciado de los enlaces */
     display: block; /* Los enlaces ocupan todo el ancho disponible */
 }
@@ -88,63 +94,50 @@ body {
 
 
 .navbar .logo {
-    width: 50px; /* Ancho del logo */
-    height: 50px; /* Altura del logo */
+    width: 40px; /* Ancho del logo */
+    height: 40px; /* Altura del logo */
     border-radius: 50%; /* Forma redonda */
     object-fit: cover; /* Asegura que la imagen cubra el contenedor */
 }
 
-/* Asegúrate de que el selector coincida con el ID o clase de tu barra de búsqueda */
-#pais {
-    height: 30px; /* Ajusta esta altura según la altura de tu barra de búsqueda */
-    width: 80px; /* Ajusta este ancho según el ancho de tu barra de búsqueda */
-    padding: 5px; /* Ajusta el padding según sea necesario */
-    font-size: 16px; /* Ajusta el tamaño de la fuente según sea necesario */
-    border: 1px solid #8190d2; /* Ajusta el borde según sea necesario */
-    border-radius: 4px; /* Ajusta el radio del borde según sea necesario */
-}
-
-#especialista {
-    height: 30px; /* Ajusta esta altura según la altura de tu barra de búsqueda */
-    width: 110px; /* Ajusta el ancho según sea necesario */
-    padding: 5px; /* Ajusta el padding según sea necesario */
-    font-size: 16px; /* Ajusta el tamaño de la fuente según sea necesario */
-    border: 1px solid #8190d2; /* Ajusta el borde según sea necesario */
-    border-radius: 4px; /* Ajusta el radio del borde según sea necesario */
-}
-
 .search-container {
-    margin-left: auto; /* Empuja el contenedor de búsqueda a la derecha */
-    margin-right: 10px; /* Margen de 10px a la derecha */
+    width: 80%; /* Hace que el contenedor cubra el 90% de la pantalla */
+    margin: auto; /* Centra el contenedor horizontalmente */
     display: flex; /* Flexbox para alinear elementos */
     align-items: center; /* Alineación vertical */
     border: 1px solid #8190d2; /* Borde */
-    padding: 5px; /* Espaciado dentro del search-container */
+    padding: 5px; /* Espaciado interno */
+    border-radius: 4px; /* Bordes redondeados al 1% */
+    box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
+}
+
+#pais, #especialista, .search-input, .search-button {
+    height: 30px; /* Altura fija para todos los elementos */
+    font-size: 1em; /* Tamaño de la fuente */
+    border: 1px solid #8190d2;
+}
+
+#pais, #especialista {
+    padding: 5px;
+    border-radius: 4px; /* Bordes redondeados */
 }
 
 .search-input {
-    padding: 5px; /* Espaciado interno */
-    font-size: 1em; /* Tamaño de la fuente */
-    border: 1px solid #8190d2; /* Borde */
+    width: 100%; /* Ajusta el ancho dinámicamente */
+    padding: 5px;
     border-radius: 5px 0 0 5px; /* Bordes redondeados */
-    outline: none; /* Sin contorno */
-    height: 30px; /* Altura fija */
-    width: 150px; /* Ancho fijo */
-    margin: 0; /* Sin margen */
+    outline: none;
     border-right: none; /* Sin borde derecho */
+    margin: 0; /* Sin margen */
 }
 
 .search-button {
-    padding: 5px 10px; /* Espaciado interno */
-    font-size: 1em; /* Tamaño de la fuente */
-    border: 1px solid #8190d2; /* Borde */
+    padding: 5px 10px;
     border-left: none; /* Sin borde izquierdo */
     border-radius: 0 5px 5px 0; /* Bordes redondeados */
-    background-color: #8190d2; /* Color de fondo */
-    color: white; /* Color del texto */
-    cursor: pointer; /* Cursor de puntero */
-    height: 30px; /* Altura fija */
-    margin: 0; /* Sin margen */
+    background-color: #8190d2;
+    color: white;
+    cursor: pointer;
 }
 
 .search-button:hover {
@@ -157,13 +150,12 @@ body {
     width: 100%; /* Ancho completo */
     height: 320px; /* Altura fija */
     background-color: #aec6ef; /* Color de fondo */
+    margin-top: 70px; /* Altura del navbar para evitar superposición */
 }
 
 .banner-container img {
     width: 100%; /* Ancho completo de la imagen */
     height: 100%; /* Altura completa de la imagen */
-    margin-top: 140px; /* Espacio superior */
-    padding-bottom: 60px; /* Espacio inferior */
 }
 
 .banner-container h1 {
@@ -284,6 +276,44 @@ section {
     margin: 10px 0;
 }
 
+/*estilos para trapezoides*/
+.trapezoid {
+    width: 300px; /* Ancho del div */
+    height: 300px; /* Altura del div */
+    position: relative;
+    clip-path: polygon(0% 0%, 100% 20%, 100% 80%, 0% 100%);
+    padding: 20px;
+    margin: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+.trapezoid-1{
+    background-color: lightblue; /* Color de fondo */
+}
+
+.trapezoid-2{
+    background-color: #f2e2ee; /* Color de fondo */
+}
+
+.trapezoid-3{
+    background-color: #ad7bc5; /* Color de fondo */
+}
+
+.trapezoid h5 {
+    margin: 0; /* Elimina el margen para centrar mejor */
+}
+
+.trapezoid a {
+    text-decoration: none; /* Sin subrayado */
+    color: #000; /* Color del texto */
+    padding: 10px 15px; /* Espaciado de los enlaces */
+    display: block; /* Los enlaces ocupan todo el ancho disponible */
+}
+
 /* Estilos del formulario */
 .container-form {
     margin-top: 100px; /* Espacio superior */
@@ -361,10 +391,23 @@ footer ul li a {
 }
 
 /* Media Queries para Responsividad */
+@media (min-width: 768px) {
+    .navbar {
+        display: flex; /* Muestra el menú en dispositivos de escritorio */
+    }
+}
+
 @media (max-width: 768px) {
     .banner-container {
         margin-top: 0;
         padding-bottom: 0;
+    }
+
+    /* Asegura que el banner cubra el espacio vacío */
+    .banner-container img {
+        margin-top: 0; /* Ajusta para que la imagen comience justo debajo del navbar */
+        height: calc(100vh - 50px); /* Ajusta la altura del banner según la altura del navbar */
+        object-fit: cover;
     }
 
     .banner-container h1 {
@@ -381,6 +424,13 @@ footer ul li a {
         transform: translateY(-50%); /* Ajusta la posición */
     }
 
+    /* Ajusta la altura del navbar y del banner para evitar espacios en blanco */
+    #main-navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1001; /* Asegura que el navbar esté siempre encima */
+    }
 
     .navbar ul {
         flex-direction: column;
@@ -445,6 +495,16 @@ footer ul li a {
 }
 
 @media (max-width: 480px) {
+    .banner-container {
+        margin-top: 0;
+        padding-bottom: 0;
+    }
+
+    .banner-container img {
+        margin-top: 0;
+        height: calc(100vh - 50px);
+    }
+
     .banner-container h1 {
         top: 55%; /* Ajusta la posición vertical */
         left: 20px; /* Ajusta el espacio a la izquierda */
@@ -458,6 +518,23 @@ footer ul li a {
         font-size: 1em; /* Ajusta el tamaño de la fuente */
         transform: translateY(-50%); /* Ajusta la posición */
     }
+
+    .navbar {
+        display: none; /* Oculta el menú en dispositivos móviles inicialmente */
+        background-color: #f8f8f8; /* Color de fondo del menú */
+        padding: 10px; /* Espaciado dentro del menú */
+        position: fixed; /* Fijo en la parte superior */
+        top: 50px; /* Debajo del botón de menú */
+        right: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .navbar.show {
+        display: flex;
+        flex-direction: column; /* Coloca los enlaces en una columna */
+    }
+
 
     .navbar .logo {
         width: 30px;
